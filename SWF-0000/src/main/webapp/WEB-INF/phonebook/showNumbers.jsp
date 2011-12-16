@@ -10,10 +10,12 @@
 <body>
   <h1>Phone Numbers</h1>
   <hr>
-  <p>(917) 455-3605</p>
-  <p>(347) 219-2216</p>
-  <p>
-    <a href="${flowExecutionUrl}&_eventId=continue">End Flow</a>
-  </p>
+  <form action="${flowExecutionUrl}" method="post">
+    <p>(917) 455-3605</p>
+    <p>(347) 219-2216</p>
+    <p>
+      <button type="submit" name="_eventId_continue">End Flow</button>
+    </p>
+  </form>
 </body>
 </html>

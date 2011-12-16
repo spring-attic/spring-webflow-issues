@@ -9,6 +9,8 @@
 </head>
 <body>
   <h1>Home</h1>
-  <hr><a href="phonebook">Start Flow</a>
+  <p><em>See the server output for debug information</em></p>  
+  <hr>
+  <p><a href="phonebook">Start Flow</a></p>
 </body>
 </html>
