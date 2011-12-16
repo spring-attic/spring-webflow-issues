@@ -1,26 +1,27 @@
 ## Welcome!
 
-This repository contains mini projects reproducing issues logged in Spring Web Flow's [issue tracker|https://jira.springsource.org]. There are many reasons why this is better than .zip or patch file attachments:
+This repository contains mini projects reproducing issues logged in Spring Web Flow's [issue tracker](https://jira.springsource.org). There are many reasons why this is prefered over .zip or patch file attachments:
 
 * A streamlined process for evaluating issues so more bugs get fixed more quickly!
-* Two-way communication with the Spring team based on working code
-* A set of template projects to choose from
-* Improved code sharing across the Spring team
-* A valuable archive of Spring Web Flow projects across a wide range of use cases and features
+* Two-way communication with the Spring Web Flow team based on working code.
+* A set of template projects to choose from.
+* Improved code sharing across the Spring Web Flow team.
+* A valuable archive of Spring Web Flow projects across a wide range of use cases and features.
 
-All around a better way of interacting with the Spring team.
-
-
-## Logging an issue against Spring Web Flow's JIRA issue tracker
-
-1. First, [search SWF JIRA](https://jira.springframework.org/browse/SWF) to see if your issue has already been reported. If so, there may already be a reproduction issue in this repository!
-1. If after verifying the issue doesn't exist, [create a new issue](https://jira.springsource.org/secure/CreateIssue!default.jspa)
-    * You will now have an issue named, for example, "SWF-1502". Make note of this, as you'll need it below when creating your project.
+All around a better way of interacting with the Spring Web Flow team.
 
 
-## Using this repository to demonstrate the issue
+## Log the issue
 
-Assuming you've encountered and created an issue in the core Spring Web Flow project you can now add a project to demonstrate it. 
+1. First, search [SWF JIRA](https://jira.springframework.org/browse/SWF) to see if your issue has already been reported as there may already be a reproduction issue in this repository!
+1. If the issue doesn't exist, [create a new one](https://jira.springsource.org/secure/CreateIssue!default.jspa)
+
+You now have a JIRA issue id such as "SWF-1502". Make note of this, as you'll need it below when creating your project.
+
+
+## Demonstrate the issue
+
+Assuming you've encountered and created an issue in the core Spring Web Flow project, you can now add a project to demonstrate it. 
 
 ### First-time setup
 
@@ -29,36 +30,34 @@ Assuming you've encountered and created an issue in the core Spring Web Flow pro
 
 ### Create a project that reproduces your issue
 
-The idea is to create the smallest possible project to demonstrate the issue.  The project may be built with Maven and must contain only sources, XML and other necessary text files. No JARs, please!
+The idea is to create the smallest possible project to demonstrate the issue.  The project is built with Maven and must contain only sources, XML and other necessary text files. No JARs, please!
 
 For the purpose of these instructions, we'll assume your new JIRA issue ID is "SWF-1502"
 
 #### Steps
 
-1\. In your local clone of this repository, create a copy of the appopriate 'template' directory. Their names start with `SWF-0000`.
+1\. In your local clone of this repository, create a copy of the appopriate template sub-directory. Their names start with `SWF-0000`.
 
 For Spring Web Flow (non-JSF) issues:
 
 ```bash
-cd spring-webflow-issues
-./create-repro-project.sh SWF-0000/ SPR-1502
-cd SPR-1502
+$ cd spring-webflow-issues
+$ ./create-repro-project.sh SWF-0000/ SPR-1502
+$ cd SPR-1502
 ```
 
 For Spring Web Flow with JSF 2 issues:
 
 ```bash
-cd spring-webflow-issues
-./create-repro-project.sh SWF-JSF-0000/ SPR-1502
-cd SPR-1502
+$ cd spring-webflow-issues
+$ ./create-repro-project.sh SWF-JSF-0000/ SPR-1502
+$ cd SPR-1502
 ```
 
 2\. Review the list of dependencies and version numbers and modify the pom.xml as necessary.
 
 
-3\. Import the project into your IDE and modify it as necessary to reproduce your issue.
-
-* It is already a buildable Maven project, so you may use your IDE's built-in support for Maven to do the importing or generate them before importing (e.g. `mvn eclipse:eclipse`).
+3\. Import the project into your IDE and modify it as necessary to reproduce your issue. It is already a buildable Maven project, so you may use your IDE's built-in support for Maven to do the importing or generate the IDE settings before importing (e.g. `mvn eclipse:eclipse`).
 
 4\. Add, commit, and push your local fork
 
