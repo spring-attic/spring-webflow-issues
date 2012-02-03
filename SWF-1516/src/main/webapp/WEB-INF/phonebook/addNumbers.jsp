@@ -11,6 +11,21 @@
 <title>Phone Numbers</title>
 </head>
 <body>
+  <h1>Instructions</h1>
+  The model validates that the phone numbers are not empty and are equal.
+  The 'not empty' validation occurs on the fields, and the errors are reported under 'All errors'
+  and by the 'field'.
+  <br/>
+  The 'do phone numbers match' validation is a object level validation. The error message appears unde 'All errors'
+  but NOT, as expected, under 'Object level error'.
+ 
+ <br/>The javadoc for the ErrorsTag says
+  <ol>
+ 	<li>Field only - set '<code>path</code>' to the field name (or path)</li>
+ 	<li>Object errors only - omit '<code>path</code>'</li>
+ 	<li>All errors - set '<code>path</code>' to '<code>*</code>'</li>
+  </ol>
+ 
   <h1>Phone Numbers</h1>
   <hr>
  <form:form method="post" modelAttribute="phoneForm">
@@ -40,6 +55,8 @@
 					<br />
 					<div>
 						<form:label path="phone2">Repeat phone</form:label>
+												<span style="color: #f00">*</span>
+						
 					</div>
 					<div>
 						<form:input path="phone2" name="phone2" />
