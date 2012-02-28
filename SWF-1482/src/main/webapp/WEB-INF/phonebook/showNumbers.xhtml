@@ -1,0 +1,22 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://java.sun.com/jsf/html" 
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:rich="http://richfaces.org/rich"
+  template="/WEB-INF/layouts/standard.xhtml">
+  <ui:define name="content">
+    <div>
+      <h1>File Upload</h1>
+      <hr/>
+      <h:form>
+        <rich:fileUpload id="upload" 
+          fileUploadListener="#{fileUploadBean.listener}" 
+          acceptedTypes="jpg, gif, png, bmp">
+        </rich:fileUpload>
+        <h:commandButton id="continue" value="End Flow" action="continue" />
+      </h:form>
+    </div>
+  </ui:define>
+</ui:composition>
