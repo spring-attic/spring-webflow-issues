@@ -7,6 +7,9 @@
 	<var name="mainEntityController" class="org.springframework.webflow.issues.MainEntityController"/>
 		
 	<view-state id="view">
+		<on-render>
+			<set name="requestScope.dynamicImage" value="mainEntityController.createDynamicImage()" />
+		</on-render>
 		<transition on="continue" to="done" />
 	</view-state>
 
