@@ -5,12 +5,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Home</title>
+<title>My Flow Page</title>
 </head>
 <body>
-  <h1>Home</h1>
-  <p><strong>See server log for debug information</strong></p>  
+  <h1>My Flow Page</h1>
   <hr>
-  <p><a href="myflow">Start Flow</a></p>
+  <form action="${flowExecutionUrl}" method="post">
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <p>
+      <button type="submit" name="_eventId_continue">End Flow</button>
+    </p>
+  </form>
 </body>
 </html>

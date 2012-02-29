@@ -38,7 +38,7 @@ For the purpose of these instructions, we'll assume your new JIRA issue ID is "S
 
 1\. In your local clone of this repository, create a copy of the appopriate template sub-directory. Their names start with `SWF-0000`.
 
-For Spring Web Flow (non-JSF) issues:
+For example:
 
 ```bash
 $ cd spring-webflow-issues
@@ -46,13 +46,7 @@ $ ./create-repro-project.sh SWF-0000/ SPR-1502
 $ cd SPR-1502
 ```
 
-For Spring Web Flow with JSF 2 issues:
-
-```bash
-$ cd spring-webflow-issues
-$ ./create-repro-project.sh SWF-JSF-0000/ SPR-1502
-$ cd SPR-1502
-```
+Also available are `SWF-0000-primefaces`, `SWF-0000-richfaces`, and `SWF-0000-jsf`.
 
 2\. Review the list of dependencies and version numbers and modify the pom.xml as necessary.
 
