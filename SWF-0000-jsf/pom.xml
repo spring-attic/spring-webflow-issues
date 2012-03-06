@@ -65,7 +65,7 @@
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
 				 </exclusion>
-			</exclusions>						
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -81,8 +81,8 @@
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
 				 </exclusion>
-			</exclusions>						
-				</dependency>	
+			</exclusions>
+				</dependency>
 				-->
 
 		<!-- Logging -->
@@ -213,6 +213,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 </project>
 

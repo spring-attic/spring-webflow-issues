@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.springframework.webflow.issues</groupId>
-	<artifactId>SWF-0000-richfaces</artifactId>
+	<artifactId>SWF-0000-jsf12</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<name>Spring Web Flow and RichFaces Issue Reproduction Project</name>
+	<name>Spring Web Flow and JSF 1.2 Issue Reproduction Project</name>
 	<packaging>war</packaging>
 
 	<properties>
@@ -12,8 +12,7 @@
 		<org.springwebflow-version>2.3.1.BUILD-SNAPSHOT</org.springwebflow-version>
 		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
 		<org.springsecurity-version>3.0.7.RELEASE</org.springsecurity-version>
-		<jsf-version>2.1.7</jsf-version>
-		<richfaces.version>4.2.0.Final</richfaces.version>
+		<jsf-version>1.2_15</jsf-version>
 		<org.slf4j-version>1.6.1</org.slf4j-version>
 	</properties>
 
@@ -46,25 +45,20 @@
 
 		<!-- JSF -->
 		<dependency>
-			<groupId>com.sun.faces</groupId>
+			<groupId>javax.faces</groupId>
 			<artifactId>jsf-api</artifactId>
 			<version>${jsf-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.sun.faces</groupId>
+			<groupId>javax.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
 			<version>${jsf-version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.richfaces.ui</groupId>
-			<artifactId>richfaces-components-ui</artifactId>
-			<version>${richfaces.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.richfaces.core</groupId>
-			<artifactId>richfaces-core-impl</artifactId>
-			<version>${richfaces.version}</version>
+			<groupId>com.sun.facelets</groupId>
+			<artifactId>jsf-facelets</artifactId>
+			<version>1.1.14</version>
 		</dependency>
 
 		<!-- Spring Security
@@ -137,19 +131,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Bean Validation with the Hibernate Validator implementation -->
-		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<version>1.0.0.GA</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>4.1.0.Final</version>
-		</dependency>
-
 		<!-- JAXB for Hibernate Validator when running on Java 5
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
@@ -171,11 +152,15 @@
 	<repositories>
 
 		<repository>
-			<id>spring-related-snapshot-releases</id>
-			<name>Latest Spring Snapshot Repository</name>
-			<url>http://maven.springframework.org/snapshot</url>
-			<releases><enabled>false</enabled></releases>
-			<snapshots><enabled>true</enabled></snapshots>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>http://repo.springsource.org/snapshot</url>
+		</repository>
+
+		<repository>
+			<id>spring-dependencies</id>
+			<name>Spring Dependencies</name>
+			<url>http://repo.springsource.org/libs-release</url>
 		</repository>
 
 	</repositories>

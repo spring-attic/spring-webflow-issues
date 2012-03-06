@@ -20,8 +20,8 @@
 
 	<!-- Enables special Facelets debug output during development -->
 	<context-param>
-	  <param-name>javax.faces.PROJECT_STAGE</param-name>
- 		<param-value>Development</param-value>
+		<param-name>javax.faces.PROJECT_STAGE</param-name>
+		<param-value>Development</param-value>
 	</context-param>
 
 	<!-- Causes Facelets to refresh templates during development -->
@@ -51,6 +51,12 @@
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+
+	<!-- Just here so the JSF implementation can initialize -->
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.faces</url-pattern>
+	</servlet-mapping>
 
 	<welcome-file-list>
 		<welcome-file>main/index.html</welcome-file>

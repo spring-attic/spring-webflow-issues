@@ -11,44 +11,25 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	
+
 	<!-- Use JSF view templates saved as *.xhtml, for use with Facelets -->
 	<context-param>
 		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>
 		<param-value>.xhtml</param-value>
 	</context-param>
-	
+
 	<!-- Enables special Facelets debug output during development -->
-  	<context-param>
-        <param-name>javax.faces.PROJECT_STAGE</param-name>
-   		<param-value>Development</param-value>
-  	</context-param>
-  	
-  	<!-- Causes Facelets to refresh templates during development -->
-  	<context-param>
-  		<param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
-  		<param-value>1</param-value>
-  	</context-param>
-  	
-	<!-- Uncomment for Spring Security
-	<filter>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-    </filter>
+	<context-param>
+	  <param-name>javax.faces.PROJECT_STAGE</param-name>
+ 		<param-value>Development</param-value>
+	</context-param>
 
-    <filter-mapping>
-      <filter-name>springSecurityFilterChain</filter-name>
-      <servlet-name>appServlet</servlet-name>
-    </filter-mapping>
-    -->
+	<!-- Causes Facelets to refresh templates during development -->
+	<context-param>
+		<param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
+		<param-value>1</param-value>
+	</context-param>
 
-  	<!-- Uncomment to declare Spring Security Facelets tag library
-  	<context-param>
-  		<param-name>javax.faces.FACELETS_LIBRARIES</param-name>
-  		<param-value>/WEB-INF/springsecurity.taglib.xml</param-value>
-  	</context-param>
-	-->
-	  	    
 	<servlet>
 		<servlet-name>appServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -70,7 +51,7 @@
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	
+
 	<welcome-file-list>
 		<welcome-file>main/index.html</welcome-file>
 	</welcome-file-list>

@@ -9,7 +9,7 @@
 </head>
 <body>
   <h1>Home</h1>
-  <p><strong>See server log for debug information</strong></p>  
+  <p><strong>See server log for debug information</strong></p>
   <hr>
   <p><a href="myflow">Start Flow</a></p>
 </body>

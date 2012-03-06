@@ -9,10 +9,6 @@
 
 	<context:component-scan base-package="org.springframework.webflow.issues" />
 
-	<faces:resources />
-
-	<bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"/>
-
 	<!-- Maps request paths to flows in the flowRegistry -->
 	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
 		<property name="order" value="1" />
