@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+	<context:component-scan base-package="org.springframework.webflow.issues" />
+
+	<!--
+		Map request paths to flows in the flowRegistry;
+		For example a path of /phonebook looks for a flow with id "phonebook".
+		-->
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+		<property name="order" value="-1"/>
+		<property name="flowRegistry" ref="flowRegistry" />
+	</bean>
+
+	<!-- Enable processing of requests by annotated Spring MVC @Controllers -->
+	<mvc:annotation-driven/>
+
+	<mvc:resources mapping="/resources/**" location="/, classpath:/META-INF/web-resources/" />
+	<mvc:default-servlet-handler />
+
+	<!-- Map paths directly to view names without controller processing. Use the view-name attribute if necessary: by convention the view name equals the path without the leading slash -->
+	<mvc:view-controller path="/" view-name="home" />
+
+	<!-- Resolve view names to JSP pages under /WEB-INF/views -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<!--
+		Uncomment to resolve logical view names returned to Tiles definitions
+		Also remember to remove the InternalResourceViewResolver above
+
+	<bean id="tilesViewResolver" class="org.springframework.js.ajax.AjaxUrlBasedViewResolver">
+		<property name="viewClass" value="org.springframework.webflow.mvc.view.FlowAjaxTilesView"/>
+	</bean>
+
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/**/views.xml</value>
+			</list>
+		</property>
+	</bean>
+	-->
+
+	<!-- Enable FlowExecutor invocation by the DispatcherServlet -->
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+		<property name="flowExecutor" ref="flowExecutor"/>
+	</bean>
+
+	<import resource="data-access-config.xml" />
+
+	<!-- Import Spring Web Flow specific configuration -->
+	<import resource="webflow.xml"/>
+
+</beans>
