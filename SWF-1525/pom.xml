@@ -199,26 +199,34 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>1.8.0.10</version>
+			<scope>runtime</scope>
+		</dependency>
+<!-- 		
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.18</version>
 			<scope>runtime</scope>
 		</dependency>
+ -->
 	</dependencies>
-
+ 
 	<repositories>
 
 		<repository>
 			<id>spring-related-snapshot-releases</id>
-			<name>Spring Maven Snapshot Repository</name>
+			<name>Spring Snapshots</name>
 			<url>http://maven.springframework.org/snapshot</url>
 			<releases><enabled>false</enabled></releases>
 			<snapshots><enabled>true</enabled></snapshots>
 		</repository>
 
-        <repository>
+		<repository>
 			<id>spring-related-milestone-releases</id>
-			<name>Spring Maven Milestone Repository</name>
+			<name>Spring Milestones</name>
 			<url>http://maven.springframework.org/milestone</url>
 			<snapshots><enabled>false</enabled></snapshots>
 		</repository>

@@ -27,11 +27,18 @@
 		</property>
 	</bean>
 	
+	
 	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource">
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+		<property name="url" value="jdbc:hsqldb:mem:booking" />
+		<property name="username" value="sa" />
+		<property name="password" value="" />
+		<!-- 
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/swf_1525" />
 		<property name="username" value="root" />
 		<property name="password" value="root" />
+		 -->
 		<property name="maxActive" value="3" />
 		<property name="maxIdle" value="3" />
 		<property name="validationQuery" value="SELECT 1;" />
