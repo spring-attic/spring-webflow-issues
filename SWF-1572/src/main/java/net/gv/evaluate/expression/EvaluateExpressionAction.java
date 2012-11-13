@@ -5,9 +5,10 @@ import org.springframework.webflow.execution.RequestContext;
 
 @Component
 public class EvaluateExpressionAction {
-	
-	public void test(RequestContext context, Object obj) {
+
+	public String test(RequestContext context, Object obj) {
 		System.out.println(obj);
+		return "test";
 	}
-		
+
 }
