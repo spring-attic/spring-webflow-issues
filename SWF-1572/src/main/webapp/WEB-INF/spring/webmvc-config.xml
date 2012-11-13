@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:webflow="http://www.springframework.org/schema/webflow-config"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.1.xsd
+           http://www.springframework.org/schema/webflow-config
+           http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.3.xsd
+           http://www.springframework.org/schema/mvc
+		   http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+
+	<context:component-scan base-package="net.gv" />
+
+	<webflow:flow-registry id="flowRegistry" base-path="/WEB-INF/flows"
+		flow-builder-services="flowBuilderServices">
+		<webflow:flow-location-pattern value="/**/*.flow.xml" />
+	</webflow:flow-registry>
+
+	<webflow:flow-builder-services id="flowBuilderServices" view-factory-creator="viewFactoryCreator" />
+
+	<webflow:flow-executor id="flowExecutor">
+		<webflow:flow-execution-attributes>
+			<webflow:always-redirect-on-pause value="false" />
+			<webflow:redirect-in-same-state value="false" />
+		</webflow:flow-execution-attributes>
+	</webflow:flow-executor>
+
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+		<property name="flowExecutor" ref="flowExecutor" />
+		<property name="redirectHttp10Compatible" value="false" />
+	</bean>
+
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+		<property name="flowRegistry" ref="flowRegistry" />
+		<property name="order" value="0" />
+	</bean>
+
+	<bean id="viewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+		<property name="viewResolvers">
+			<list>
+				<ref bean="urlViewResolver" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="urlViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView" />
+		<property name="suffix" value=".jsp" />
+		<property name="order" value="1" />
+	</bean>
+
+	<mvc:view-controller path="/" view-name="forward:/test" />
+
+</beans>

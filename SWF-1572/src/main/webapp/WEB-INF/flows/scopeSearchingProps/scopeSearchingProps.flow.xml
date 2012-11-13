@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+	start-state="start">
+
+	<input name="test" />
+
+	<decision-state id="start">
+		<if test="test == 'kk'" then="initVariables" else="evaluateExpression" />
+	</decision-state>
+
+	<action-state id="initVariables">
+		<evaluate expression="new net.gv.evaluate.expression.EvaluateExpressionAction()" result="conversationScope.evaluateExpressionAction" />
+		<transition to="evaluateExpression" />
+	</action-state>
+
+	<action-state id="evaluateExpression">
+		<evaluate expression="evaluateExpressionAction.test(flowRequestContext, conversationScope.anObject)" />
+		<transition to="end" />
+	</action-state>
+
+	<end-state id="end" view="/aPage" />
+
+</flow>
