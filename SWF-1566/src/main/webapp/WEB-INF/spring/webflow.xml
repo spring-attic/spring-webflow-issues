@@ -17,38 +17,12 @@
 	</webflow:flow-registry>
 
 	<!-- Plugs in a custom creator for Web Flow views -->
-	<webflow:flow-builder-services id="flowBuilderServices" development="true" validator="validator"  expression-parser="webflowExpressionParser"/>
-	
-	<bean id="expressionParser" class="org.springframework.expression.spel.standard.SpelExpressionParser">
-    <constructor-arg name="configuration">
-      <bean class="org.springframework.expression.spel.SpelParserConfiguration">
-        <constructor-arg name="autoGrowCollections" value="true" />
-        <constructor-arg name="autoGrowNullReferences" value="true" />
-      </bean>
-    </constructor-arg>
-  </bean>
+	<webflow:flow-builder-services id="flowBuilderServices" development="true" validator="validator" 
+		view-factory-creator="viewFactoryCreator"/>
 
-  <bean id="webflowExpressionParser" class="org.springframework.webflow.expression.spel.WebFlowSpringELExpressionParser">
-    <constructor-arg name="expressionParser" ref="expressionParser" />    
-  </bean>
-	
+	<bean id="viewFactoryCreator" class="foo.bar.CustomMvcViewFactoryCreator" />
 
 	<!-- Bootstraps JSR-303 validation and exposes it through Spring's Validator interface -->
 	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
-
-	<!-- Apache Tiles:
-		 Also reference it from <webflow:flow-builder-services> above
-
-	<bean id="mvcViewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
-		<property name="viewResolvers" ref="tilesViewResolver"/>
-		<property name="useSpringBeanBinding" value="true" />
-	</bean>
-	-->
-
-	<!-- Spring Security:
-		 Also add it as a listener as a sub-element of <webflow:flow-executor> above
-
-	<bean id="securityFlowExecutionListener" class="org.springframework.webflow.security.SecurityFlowExecutionListener" />
-	-->
 
 </beans>
