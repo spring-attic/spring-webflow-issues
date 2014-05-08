@@ -1,0 +1,10 @@
+<facelet-taglib xmlns="http://java.sun.com/xml/ns/javaee">
+   <namespace>http://demo</namespace>
+   <tag>
+      <tag-name>demoUILabel</tag-name>
+      <component>
+         <component-type>DemoOutput</component-type>
+         <renderer-type>javax.faces.Label</renderer-type>
+      </component>
+   </tag>
+</facelet-taglib>
