@@ -9,7 +9,7 @@
 
 	<properties>
 		<java-version>1.6</java-version>
-		<org.springwebflow-version>2.4.0.RC1</org.springwebflow-version>
+		<org.springwebflow-version>2.4.0.BUILD-SNAPSHOT</org.springwebflow-version>
 		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
 		<org.springsecurity-version>3.0.7.RELEASE</org.springsecurity-version>
 		<jsf-version>2.1.20</jsf-version>
@@ -18,6 +18,7 @@
 
 	<dependencies>
 		<!-- Spring Framework -->
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -37,6 +38,21 @@
 		</dependency>
 
 		<!-- Spring Web Flow -->
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-js</artifactId>
+			<version>${org.springwebflow-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-binding</artifactId>
+			<version>${org.springwebflow-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-webflow</artifactId>
+			<version>${org.springwebflow-version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.webflow</groupId>
 			<artifactId>spring-faces</artifactId>
