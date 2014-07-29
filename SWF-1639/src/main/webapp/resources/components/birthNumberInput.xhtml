@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:component
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:composite="http://java.sun.com/jsf/composite">
+
+	<composite:interface componentType="birthNumberInput">
+		<composite:attribute name="value" type="cz.csob.poc.jsf.model.BirthNumber" required="true" />
+	</composite:interface>
+
+	<composite:implementation>
+        <table style="margin: 0px; padding: 0px; width: 100%;" cellspacing="0">
+        	<tr>
+	       		<td style="width: 140px;">
+	            	<h:outputLabel value="#{msg['user.birth.number']}: *" />
+	            </td>
+	            <td style="width: 180px;">
+		            <p:inputText id="firstPart" binding="#{cc.firstPart}" size="7" />
+		            &nbsp;
+		            <h:outputText value="/" />
+		            &nbsp;
+		            <p:inputText if="secondPart" binding="#{cc.secondPart}" size="5" />
+		        </td>
+		        <td>
+		            <p:message for="#{cc.attrs.id}" />
+		        </td>
+	       </tr>
+        </table>
+	</composite:implementation>
+
+</ui:component>

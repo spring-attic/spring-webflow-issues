@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:webflow="http://www.springframework.org/schema/webflow-config"
+       xmlns:faces="http://www.springframework.org/schema/faces"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd
+            http://www.springframework.org/schema/faces http://www.springframework.org/schema/faces/spring-faces.xsd">
+
+	<context:component-scan base-package="cz.csob" />
+
+    <!-- Enables support for Spring WebFlow scopes -->
+    <bean class="org.springframework.webflow.scope.ScopeRegistrar" />
+
+    <!-- Enable handling of java.util.logging through SLF4J -->
+    <bean id="slf4JBridgeHandler" class="org.slf4j.bridge.SLF4JBridgeHandler"
+          init-method="removeHandlersForRootLogger"/>
+    <bean class="org.slf4j.bridge.SLF4JBridgeHandler"
+          init-method="install"
+          depends-on="slf4JBridgeHandler"/>
+
+	<!-- A listener maintain one FacesContext instance per Web Flow request. -->
+	<bean id="facesContextListener" class="org.springframework.faces.webflow.FlowFacesContextLifecycleListener" />
+
+	<!-- Executes flows: the central entry point into the Spring Web Flow system -->
+	<webflow:flow-executor id="flowExecutor">
+		<webflow:flow-execution-listeners>
+			<webflow:listener ref="facesContextListener" />
+		</webflow:flow-execution-listeners>
+	</webflow:flow-executor>
+
+	<!-- Configures the Spring Web Flow JSF integration -->
+    <faces:flow-builder-services id="flowBuilderServices" />
+
+	<!-- The registry of executable flow definitions -->
+	<webflow:flow-registry id="flowRegistry" flow-builder-services="flowBuilderServices" base-path="/WEB-INF">
+		<webflow:flow-location-pattern value="**/*Flow.xml" />
+	</webflow:flow-registry>
+
+	<!-- Spring MVC -->
+	<faces:resources />
+
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+		<property name="flowRegistry" ref="flowRegistry" />
+	</bean>
+
+	<bean class="org.springframework.faces.webflow.JsfFlowHandlerAdapter">
+		<property name="flowExecutor" ref="flowExecutor" />
+	</bean>
+
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass" value="org.springframework.faces.mvc.JsfView" />
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".xhtml" />
+	</bean>
+
+</beans>

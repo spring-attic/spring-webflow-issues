@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+      start-state="v01userList">
+
+	<view-state id="v01userList">
+		<transition on="detail" to="userDetail" />
+		<transition on="userCreateEvent" to="userCreate" />
+        <transition on="wizard" to="userWizard" />
+	</view-state>
+
+	<subflow-state id="userCreate" subflow="modules/userCreate">
+		<transition on="backEndState" to="v01userList"/>
+	</subflow-state>
+
+    <subflow-state id="userWizard" subflow="modules/userWizard">
+        <transition on="backEndState" to="v01userList"/>
+    </subflow-state>
+
+	<subflow-state id="userDetail" subflow="modules/userDetail">
+		<input name="userDetailInput" value="userListBean.returnUserDetailInput()"/>
+		<transition on="backEndState" to="v01userList"/>
+	</subflow-state>
+
+</flow>

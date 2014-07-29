@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+      start-state="v01basicInfo">
+
+	<view-state id="v01basicInfo">
+		<transition on="backEvent" to="backEndState" bind="false" validate="false" />
+		<transition on="nextEvent" to="v02advancedInfo" />
+	</view-state>
+
+	<view-state id="v02advancedInfo">
+		<transition on="backEvent" to="v01basicInfo" bind="false" validate="false" />
+		<transition on="saveEvent" to="saveClient" />
+	</view-state>
+	
+	<action-state id="saveClient">
+		<evaluate expression="userCreateBean.saveClient()" />
+		<transition on="yes" to="backEndState" />
+		<transition on="no" to="backEndState" />
+	</action-state>
+
+	<end-state id="backEndState" />
+</flow>

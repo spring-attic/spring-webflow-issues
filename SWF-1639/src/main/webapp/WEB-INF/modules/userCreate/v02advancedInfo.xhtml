@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:cc="http://java.sun.com/jsf/composite/components"
+	xmlns:p="http://primefaces.org/ui" template="/WEB-INF/templates/commonLayout.xhtml">
+	<ui:define name="content">
+
+		<h1>#{msg['user.create.advanced.info']}</h1>
+
+		<h:form>
+			<h:panelGrid columns="3">
+				<h:outputLabel for="salary" value="#{msg['user.create.salary']}: " />
+				<p:inputText id="salary" value="#{userCreateBean.client.salary}" required="false" label="#{msg['user.create.salary']}" />
+				<p:message for="salary" />
+			</h:panelGrid>
+			<h:panelGrid columns="3">
+				<h:outputLabel for="vip" value="#{msg['user.create.vip']}: " />
+				<p:selectBooleanCheckbox id="vip" value="#{userCreateBean.client.vipFlag}" required="false" label="#{msg['user.create.vip']}" />
+				<p:message for="vip" />
+			</h:panelGrid>
+
+			<h:commandButton action="backEvent" value="#{msg['user.create.back']}" immediate="true" />
+			<h:commandButton action="saveEvent" value="#{msg['user.create.save']}" />
+
+		</h:form>
+	</ui:define>
+</ui:composition>

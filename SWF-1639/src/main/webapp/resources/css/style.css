@@ -1,0 +1,184 @@
+@CHARSET "UTF-8";
+
+/* Globalne zmensi pismo - standardni je (i podle oficialni) manual vetsi nez normalne */
+.ui-widget,.ui-widget .ui-widget {
+	font-size: 90%;
+}
+
+.ui-breadcrumb {
+	font-size: 80% !important;
+}
+
+/* Vypne scrollbary u vsech layout unit */
+.ui-layout-unit-content {
+	overflow: visible !important;
+}
+
+/* Menu bar */
+.ui-menubar {
+	margin-bottom: 10px;
+}
+
+/* .ui-menu-child { */
+/* 	z-index: 9999 !important; */
+/* 	overflow: visible !important; */
+/* } */
+
+/* .ui-menu-list { */
+/* 	z-index: 9999 !important; */
+/* 	overflow: visible !important; */
+/* } */
+
+.ui-menuitem-icon {
+	background-size: 32px !important; background-repeat: no-repeat;
+	width: 32px; height: 32px;
+}
+
+/* .ui-icon ui-icon-triangle-1-s { */
+/* 	vertical-align: bottom !important; */
+/* } */
+
+/* Obrazky a ikony */
+.briefcase {
+	background-image: url('icons/briefcase.png') !important;
+}
+
+.business_user {
+	background-image: url('icons/business_user.png') !important;
+}
+
+.business_users {
+	background-image: url('icons/business_users.png') !important;
+}
+
+.calendar_date {
+	background-image: url('icons/calendar_date.png') !important;
+}
+
+.chart {
+	background-image: url('icons/chart.png') !important;
+}
+
+.computer {
+	background-image: url('icons/computer.png') !important;
+}
+
+.delete {
+	background-image: url('icons/delete.png') !important;
+}
+
+.design {
+	background-image: url('icons/design.png') !important;
+}
+
+.destination {
+	background-image: url('icons/destination.png') !important;
+}
+
+.dollar_gold {
+	background-image: url('icons/dollar_gold.png') !important;
+}
+
+.euro_gold {
+	background-image: url('icons/euro_gold.png') !important;
+}
+
+.info_desk {
+	background-image: url('icons/info_desk.png') !important;
+}
+
+.light_bulb {
+	background-image: url('icons/light_bulb.png') !important;
+}
+
+.luggage_lock {
+	background-image: url('icons/luggage_lock.png') !important;
+}
+
+.luggage_tag {
+	background-image: url('icons/luggage_tag.png') !important;
+}
+
+.mail_edit {
+	background-image: url('icons/mail_edit.png') !important;
+}
+
+.mail_open {
+	background-image: url('icons/mail_open.png') !important;
+}
+
+.map {
+	background-image: url('icons/map.png') !important;
+}
+
+.mouse {
+	background-image: url('icons/mouse.png') !important;
+}
+
+.movie {
+	background-image: url('icons/movie.png') !important;
+}
+
+.museum {
+	background-image: url('icons/museum.png') !important;
+}
+
+.news {
+	background-image: url('icons/news.png') !important;
+}
+
+.note_book_edit {
+	background-image: url('icons/note_book_edit.png') !important;
+}
+
+.notes {
+	background-image: url('icons/notes.png') !important;
+}
+
+.pages_written {
+	background-image: url('icons/pages_written.png') !important;
+}
+
+.paint {
+	background-image: url('icons/paint.png') !important;
+}
+
+.phone_book_search {
+	background-image: url('icons/phone_book_search.png') !important;
+}
+
+.phone {
+	background-image: url('icons/phone.png') !important;
+}
+
+.photo_tif_file {
+	background-image: url('icons/photo_tif_file.png') !important;
+}
+
+.printer {
+	background-image: url('icons/printer.png') !important;
+}
+
+.process {
+	background-image: url('icons/process.png') !important;
+}
+
+.smart_phone {
+	background-image: url('icons/smart_phone.png') !important;
+}
+
+.user {
+	background-image: url('icons/user.png') !important;
+}
+
+.users {
+	background-image: url('icons/users.png') !important;
+}
+
+.wifi {
+	background-image: url('icons/wifi.png') !important;
+}
+
+.world {
+	background-image: url('icons/world.png') !important;
+}

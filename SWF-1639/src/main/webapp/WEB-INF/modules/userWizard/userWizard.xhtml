@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:cc="http://java.sun.com/jsf/composite/components"
+	xmlns:p="http://primefaces.org/ui" template="/WEB-INF/templates/commonLayout.xhtml">
+	<ui:define name="content">
+
+		<h1>#{msg['user.wizard.new.user']}</h1>
+
+		<h:form>
+
+			<p:wizard flowListener="#{userWizard.onFlowProcess}">
+				<p:tab id="personal" title="#{msg['user.wizard.personal']}">
+					<p:panel header="Personal Details">
+						<p:messages />
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="#{msg['user.wizard.first.name']}: *" />
+							<p:inputText value="#{userWizard.user.firstname}" required="true" label="#{msg['user.wizard.first.name']}" />
+
+							<h:outputText value="#{msg['user.wizard.last.name']}: *" />
+							<p:inputText value="#{userWizard.user.lastname}" required="true" label="#{msg['user.wizard.last.name']}" />
+
+							<h:outputText value="#{msg['user.wizard.age']}: " />
+							<p:inputText value="#{userWizard.user.age}" />
+
+							<h:outputText value="#{msg['user.wizard.skip']}: " />
+							<h:selectBooleanCheckbox value="#{userWizard.skip}" />
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+
+				<p:tab id="address" title="#{msg['user.wizard.address']}">
+					<p:panel header="Address Details">
+						<p:messages />
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="#{msg['user.wizard.street']}: " />
+							<p:inputText value="#{userWizard.user.street}" />
+
+							<h:outputText value="#{msg['user.wizard.postal.code']}: " />
+							<p:inputText value="#{userWizard.user.postalCode}" />
+
+							<h:outputText value="#{msg['user.wizard.city']}: " />
+							<p:inputText value="#{userWizard.user.city}" />
+
+							<h:outputText value="#{msg['user.wizard.skip']}: " />
+							<h:selectBooleanCheckbox value="#{userWizard.skip}" />
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+
+				<p:tab id="contact" title="#{msg['user.wizard.contact']}">
+					<p:panel header="Contact Information">
+						<p:messages />
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="#{msg['user.wizard.email']}: *" />
+							<p:inputText value="#{userWizard.user.email}" required="true" label="#{msg['user.wizard.email']}" />
+
+							<h:outputText value="#{msg['user.wizard.phone']}: " />
+							<p:inputText value="#{userWizard.user.phone}" />
+
+							<h:outputText value="#{msg['user.wizard.additional.info']}: " />
+							<p:inputText value="#{userWizard.user.info}" />
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+
+				<p:tab id="confirm" title="#{msg['user.wizard.confirmation']}">
+					<p:panel header="Confirmation">
+						<h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
+							<h:panelGrid columns="2" columnClasses="label, value">
+								<h:outputText value="#{msg['user.wizard.first.name']}: " />
+								<h:outputText value="#{userWizard.user.firstname}" styleClass="outputLabel" />
+
+								<h:outputText value="#{msg['user.wizard.last.name']}: " />
+								<h:outputText value="#{userWizard.user.lastname}" styleClass="outputLabel" />
+
+								<h:outputText value="#{msg['user.wizard.age']}: " />
+								<h:outputText value="#{userWizard.user.age}" styleClass="outputLabel" />
+							</h:panelGrid>
+
+							<h:panelGrid columns="2" columnClasses="label, value">
+								<h:outputText value="#{msg['user.wizard.street']}: " />
+								<h:outputText value="#{userWizard.user.street}" styleClass="outputLabel" />
+
+								<h:outputText value="#{msg['user.wizard.postal']}: " />
+								<h:outputText value="#{userWizard.user.postalCode}" styleClass="outputLabel" />
+
+								<h:outputText value="#{msg['user.wizard.city']}: " />
+								<h:outputText value="#{userWizard.user.city}" styleClass="outputLabel" />
+							</h:panelGrid>
+
+							<h:panelGrid columns="2" columnClasses="label, value">
+								<h:outputText value="#{msg['user.wizard.email']}: " />
+								<h:outputText value="#{userWizard.user.email}" styleClass="outputLabel" />
+
+								<h:outputText value="#{msg['user.wizard.phone']}: " />
+								<h:outputText value="#{userWizard.user.phone}" styleClass="outputLabel" />
+
+								<h:outputText value="#{msg['user.wizard.info']}: " />
+								<h:outputText value="#{userWizard.user.info}" styleClass="outputLabel" />
+
+								<h:outputText />
+								<h:outputText />
+							</h:panelGrid>
+						</h:panelGrid>
+
+						<p:commandButton value="#{msg['user.wizard.submit']}" action="save" actionListener="#{userWizard.save}" />
+					</p:panel>
+				</p:tab>
+			</p:wizard>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

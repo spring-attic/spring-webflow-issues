@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
+	xmlns:cc="http://java.sun.com/jsf/composite/components"
+	xmlns:p="http://primefaces.org/ui" 
+	template="/WEB-INF/templates/commonLayout.xhtml">
+	<ui:define name="content">
+
+
+		<h:form id="clientBasicInfo" >
+		
+			<f:event listener="#{userCreateBean.validateBasicInfo}" type="postValidate" />
+			<h:messages for="clientBasicInfo" style="color:red;" />
+			
+			<table cellspacing="0">
+				<tr>
+					<td style="width: 140px;">
+						<h:outputLabel for="firstname" value="#{msg['user.create.first.name']}: *" />
+					</td>
+					<td style="width: 180px;">
+						<p:inputText id="firstname" value="#{userCreateBean.client.firstName}" required="true" label="#{msg['user.create.first.name']}" />
+					</td>
+					<td>
+						<p:message for="firstname" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h:outputLabel for="lastname" value="#{msg['user.create.last.name']}: *" />
+					</td>
+					<td>
+						<p:inputText id="lastname" value="#{userCreateBean.client.surName}" required="true" label="#{msg['user.create.last.name']}" />
+					</td>
+					<td>
+						<p:message for="lastname" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h:outputLabel for="birthDate" value="#{msg['user.create.birth.date']}: *" />
+					</td>
+					<td>
+						<p:calendar id="birthDate" value="#{userCreateBean.client.birthDate}" required="true" label="#{msg['user.create.birth.date']}" pattern="dd.MM.yyyy" />
+					</td>
+					<td>
+						<p:message for="birthDate" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3" style="padding: 0px;">
+						<cc:birthNumberInput id="birthNumber" value="#{userCreateBean.client.birthNumber}" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<p:commandButton action="backEvent" value="#{msg['user.create.back']}" immediate="true" />
+						<p:commandButton action="nextEvent" value="#{msg['user.create.next']}" ajax="false"  />
+					</td>
+				</tr>
+			</table>
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>
