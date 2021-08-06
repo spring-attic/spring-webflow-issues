@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <h:outputStylesheet library="css" name="bootstrap-theme.min.css"/>
+        <title>Login to JSF/Spring Web Flow Sample</title>
+    </h:head>
+    <h:body>
+        <p:outputPanel style="padding-right: 15px;  padding-left: 15px;  margin-right: auto; margin-left: auto;">
+            <h1>Login</h1>
+            <c:if test="${not empty param.login_error}">
+                <div class="error">
+                    Your login attempt was not successful, try again.<br/>
+                </div>
+            </c:if>
+            <p:panel header="Login Information">
+                <form name="f" action="/j_spring_security_check" method="post">
+                    <div class="form-group">
+                        <label for="username">User</label>
+                        <input type="text" name="username" id="username"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password"/>
+                    </div>
+                    <input name="submit" type="submit" value="Login"/>
+                </form>
+            </p:panel>
+            <h3>Username/password pairs:</h3>
+            <ul>
+                <li>user/user</li>
+                <li>admin/admin</li>
+            </ul>
+            <h3>Roles assigned:</h3>
+            <ul>
+                <li>user has ROLE_USER</li>
+                <li>admin has ROLE_USER and ROLE_ADMIN</li>
+            </ul>
+            <h:messages/>
+        </p:outputPanel>
+    </h:body>
+</f:view>
+</html>
