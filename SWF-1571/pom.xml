@@ -8,7 +8,7 @@
 	<name>Hotel Booking : Spring MVC + Web Flow + JSF/RichFaces</name>
 	<version>1.0</version>
 	<properties>
-		<spring-version>3.1.1.RELEASE</spring-version>
+		<spring-version>5.3.18</spring-version>
 		<webflow-version>2.4.0.BUILD-SNAPSHOT</webflow-version>
 		<jsf-version>2.1.20</jsf-version>
 		<richfaces-version>4.3.0.20120802-M1</richfaces-version>
