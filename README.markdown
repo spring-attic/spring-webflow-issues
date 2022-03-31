@@ -1,3 +1,5 @@
+## This repository is deprecated and is being archived in the spring-attic
+
 ## Welcome!
 
 This repository contains mini projects reproducing issues logged in Spring Web Flow's [issue tracker](https://jira.springsource.org). There are many reasons why this is prefered over .zip or patch file attachments:
