@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view contentType="text/html">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Create Person</title>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <h1>Create new person</h1>
+            <h:form>
+                <div class="form-group">
+                    <p:outputLabel for="firstName" value="First name"/>
+                    <p:inputText value="#{personForm.firstName}" id="firstName"/>
+                </div>
+                <div class="form-group">
+                    <p:outputLabel for="lastName" value="Last name"/>
+                    <p:inputText value="#{personForm.lastName}" id="lastName"/>
+                </div>
+                <p:commandButton action="save" value="Save" ajax="false"/>
+                <p:commandButton action="cancel" value="Cancel" ajax="false" immediate="true"/>
+            </h:form>
+            <p:messages showDetail="true"/>
+        </div>
+    </h:body>
+</f:view>
+</html>
