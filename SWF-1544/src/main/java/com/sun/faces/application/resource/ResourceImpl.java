@@ -325,7 +325,7 @@ public class ResourceImpl extends Resource implements Externalizable {
      */
     public boolean userAgentNeedsUpdate(FacesContext context) {
 
-        // http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
+        // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
         // 14.25 If-Modified-Since
 
         // if the requested variant has not been modified since the time
