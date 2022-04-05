@@ -1,5 +1,5 @@
 <facelet-taglib xmlns="http://java.sun.com/xml/ns/javaee">
-   <namespace>http://demo</namespace>
+   <namespace>https://demo</namespace>
    <tag>
       <tag-name>demoUILabel</tag-name>
       <component>

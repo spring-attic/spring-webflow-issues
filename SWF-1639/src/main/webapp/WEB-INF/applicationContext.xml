@@ -5,10 +5,10 @@
        xmlns:webflow="http://www.springframework.org/schema/webflow-config"
        xmlns:faces="http://www.springframework.org/schema/faces"
        xsi:schemaLocation="
-            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-            http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd
-            http://www.springframework.org/schema/faces http://www.springframework.org/schema/faces/spring-faces.xsd">
+            http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/webflow-config https://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd
+            http://www.springframework.org/schema/faces https://www.springframework.org/schema/faces/spring-faces.xsd">
 
 	<context:component-scan base-package="cz.csob" />
 
