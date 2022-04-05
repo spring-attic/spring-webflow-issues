@@ -170,7 +170,7 @@
 		<repository>
 			<id>spring-related-snapshot-releases</id>
 			<name>Latest Spring Snapshot Repository</name>
-			<url>http://maven.springframework.org/snapshot</url>
+			<url>https://maven.springframework.org/snapshot</url>
 			<releases><enabled>false</enabled></releases>
 			<snapshots><enabled>true</enabled></snapshots>
 		</repository>
@@ -178,7 +178,7 @@
 		<repository>
 			<id>primefaces-releases</id>
 			<name>Prime Technology Repository</name>
-			<url>http://repository.primefaces.org</url>
+			<url>https://repository.primefaces.org</url>
 			<layout>default</layout>
 		</repository>
 
